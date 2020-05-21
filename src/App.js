@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css'
+import Tabs from './Tabs';
+import './App.css';
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       </header>
       <main>
         <div className="container">
-
+          <Tabs />
         </div>
       </main>
     </div>

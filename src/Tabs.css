@@ -1,0 +1,4 @@
+.tabrow {
+    display: flex;
+    flex-direction: row;
+}
