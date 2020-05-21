@@ -3,8 +3,10 @@ import './Tab.css'
 
 function Tab(props) {
     return (
-        <button>{props.content}</button>
+        <button>{props.title}</button>
     )
 }
 
 export default Tab
+
+//onClick={props.switch}
