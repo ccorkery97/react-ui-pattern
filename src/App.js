@@ -3,14 +3,31 @@ import Tabs from './Tabs';
 import Content from './Content';
 import './App.css';
 
-let tacoArray = []
+let tacoArray = [
+  { name: '' },
+  { name: '' },
+  { name: '' },
+  { name: '' },
+  { name: '' },
+  { name: '' },
+  { name: '' }
+]
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      tacos: []
+      tacos: [],
+      alltacos: [
+        { name: '' },
+        { name: '' },
+        { name: '' },
+        { name: '' },
+        { name: '' },
+        { name: '' },
+        { name: '' }
+      ]
     };
   }
 
@@ -23,30 +40,21 @@ class App extends Component {
   fetchTacos = (url) => {
     for (let i = 0; i < 7; i++) {
       fetch(url).then(res => res.json()).then(data => {
+        tacoArray.shift()
         tacoArray.push(data)
         this.setState({
-          tacos: data
+          tacos: data,
+          alltacos: tacoArray
         })
       });
     }
   }
-
-  checkDuplicateTacos = (url) => {
-    for (let i = 0; i < 7; i++) {
-      for (let j = 0; j < 7; j++) {
-        if (i !== j) {
-          if (tacoArray[i].name === tacoArray[j].name) {
-            fetch(url).then(res => res.json()).then(data => {
-              tacoArray[j] = data
-            });
-          }
-        }
-      }
-    }
-  }
   
+  tacoDuplicate = () => {
+    
+  }
+
   handleTabs = (event) => {
-    this.checkDuplicateTacos("http://taco-randomizer.herokuapp.com/random/?full-taco=true")
     event.preventDefault()
     if (event.target.value === 'Content 1') {
       this.setState({
@@ -87,7 +95,7 @@ class App extends Component {
         </header>
         <main>
           <div className="container">
-            <Tabs switch={this.handleTabs} />
+            <Tabs switch={this.handleTabs} name={this.state.alltacos} />
             <Content name={this.state.tacos.name} recipe={this.state.tacos.recipe} />
           </div>
         </main>
