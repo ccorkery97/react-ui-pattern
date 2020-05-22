@@ -1,6 +1,11 @@
 button {
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(73, 73, 73);
     color: white;
     width: 100px;
     height: 70px;
+    outline: none;
+}
+
+.active {
+    background-color: rgb(40, 40, 40);
 }

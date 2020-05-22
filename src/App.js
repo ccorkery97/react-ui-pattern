@@ -27,6 +27,15 @@ class App extends Component {
         { name: '' },
         { name: '' },
         { name: '' }
+      ],
+      active: [
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        ''
       ]
     };
   }
@@ -35,6 +44,7 @@ class App extends Component {
     let url = "http://taco-randomizer.herokuapp.com/random/?full-taco=true"
 
     this.fetchTacos(url)
+    
   }
 
   fetchTacos = (url) => {
@@ -50,42 +60,104 @@ class App extends Component {
     }
   }
   
-  tacoDuplicate = () => {
-    
-  }
 
   handleTabs = (event) => {
     event.preventDefault()
     if (event.target.value === 'Content 1') {
       this.setState({
-        tacos: tacoArray[6]
+        tacos: tacoArray[6],
+        active: [
+          '',
+          '',
+          '',
+          '',
+          '',
+          '',
+          'active'
+        ]
       })
     } else if (event.target.value === 'Content 2') {
       this.setState({
-        tacos: tacoArray[1]
+        tacos: tacoArray[1],
+        active: [
+          '',
+          'active',
+          '',
+          '',
+          '',
+          '',
+          ''
+        ]
       })
     } else if (event.target.value === 'Content 3') {
       this.setState({
-        tacos: tacoArray[2]
+        tacos: tacoArray[2],
+        active: [
+          '',
+          '',
+          'active',
+          '',
+          '',
+          '',
+          ''
+        ]
       })
     } else if (event.target.value === 'Content 4') {
       this.setState({
-        tacos: tacoArray[3]
+        tacos: tacoArray[3],
+        active: [
+          '',
+          '',
+          '',
+          'active',
+          '',
+          '',
+          ''
+        ]
       })
     } else if (event.target.value === 'Content 5') {
       this.setState({
-        tacos: tacoArray[4]
+        tacos: tacoArray[4],
+        active: [
+          '',
+          '',
+          '',
+          '',
+          'active',
+          '',
+          ''
+        ]
       })
     } else if (event.target.value === 'Content 6') {
       this.setState({
-        tacos: tacoArray[5]
+        tacos: tacoArray[5],
+        active: [
+          '',
+          '',
+          '',
+          '',
+          '',
+          'active',
+          ''
+        ]
       })
     } else if (event.target.value === 'Content 7') {
       this.setState({
-        tacos: tacoArray[0]
+        tacos: tacoArray[0],
+        active: [
+          'active',
+          '',
+          '',
+          '',
+          '',
+          '',
+          ''
+        ]
       })
     } 
   }
+
+  
 
   render() {
     return (
@@ -95,7 +167,7 @@ class App extends Component {
         </header>
         <main>
           <div className="container">
-            <Tabs switch={this.handleTabs} name={this.state.alltacos} />
+            <Tabs switch={this.handleTabs} name={this.state.alltacos} active={this.state.active} />
             <Content name={this.state.tacos.name} recipe={this.state.tacos.recipe} />
           </div>
         </main>

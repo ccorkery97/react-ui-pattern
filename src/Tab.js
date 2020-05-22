@@ -3,7 +3,7 @@ import './Tab.css'
 
 function Tab(props) {
     return (
-        <button value={props.value} onClick={props.switch}>{props.title}</button>
+        <button className={props.active} value={props.value} onClick={props.switch}>{props.title}</button>
     )
 }
 
