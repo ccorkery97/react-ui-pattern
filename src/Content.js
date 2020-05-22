@@ -4,7 +4,8 @@ import './Content.css';
 function Content(props) {
     return (
         <div className="content">
-            <p>{props.content}</p>
+            <h1 className="name">{props.name}</h1>
+            <p className='recipe'>{props.recipe}</p>
         </div>
     )
 }
